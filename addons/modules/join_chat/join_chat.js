@@ -3,7 +3,8 @@ window.addEventListener("load", function() {
         alert("Your browser does not support WebRTC!");
     }
     $('.video_controls_container').click(function ($ev) {
-        $ev.target.textContent = $ev.target.textContent.replace('Hide', 'Show')
+        var currentStr = $ev.target.textContent.split(' ');
+        $ev.target.textContent = $ev.target.textContent.replace(currentStr[0], currentStr[0] === 'Hide' ? 'Show' : 'Hide');
         if ($ev.target.classList.contains('mm_hide_self')) {
             $('#agora_local').toggleClass('hide');
         }
