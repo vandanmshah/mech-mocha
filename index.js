@@ -15,7 +15,7 @@ app.listen(8000, "0.0.0.0", function() {
 // userRouters.initialize(app);
 
 app.use('/user', userRouters);
-// app.get('/about', function (req, res) {
-//     res.send('About, World!');
-// });
+app.get('/about', function (req, res) {
+    res.send('About, World!');
+});
 module.exports = app;
