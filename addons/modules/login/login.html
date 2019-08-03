@@ -17,7 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
@@ -28,8 +28,19 @@
             </a>
         </nav>
     </header>
-    <div class="mm_join_chat">
-        <a href="modules/login/login.html" type="button" class="btn btn-success">Login</a>
+    <div class="container">
+        <div class="login_inputs">
+            <div>
+                <label>Email </label><input type="text">
+            </div>
+            <div>
+                <label>Password </label><input type="password">
+            </div>
+            <div class="login_btn">
+                <a href="../dashboard/dashboard.html" type="button" class="btn btn-success">Login</a>
+            </div>
+        </div>
+        <!-- <a href="modules/join_chat/join_chat.html" type="button" class="btn btn-success">Join Chat</a> -->
     </div>
 </body>
 
