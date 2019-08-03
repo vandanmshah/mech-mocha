@@ -2,24 +2,19 @@ window.addEventListener("load", function() {
     if (!AgoraRTC.checkSystemRequirements()) {
         alert("Your browser does not support WebRTC!");
     }
-
-    /* select Log type */
-    // AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.NONE);
-    // AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.ERROR);
-    // AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.WARNING);
-    // AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.INFO);
-    // AgoraRTC.Logger.setLogLevel(AgoraRTC.Logger.DEBUG);
-
-    /* simulated data to proof setLogLevel() */
+    $('.video_controls_container').click(function ($ev) {
+        $ev.target.textContent = $ev.target.textContent.replace('Hide', 'Show')
+        if ($ev.target.classList.contains('mm_hide_self')) {
+            $('#agora_local').toggleClass('hide');
+        }
+        if ($ev.target.classList.contains('mm_hide_opponent')) {
+            $('div:not(#agora_local)').toggleClass('hide');
+        }
+    });
     AgoraRTC.Logger.error("this is error");
     AgoraRTC.Logger.warning("this is warning");
     AgoraRTC.Logger.info("this is info");
     AgoraRTC.Logger.debug("this is debug");
-
-    var client, localStream, camera, microphone;
-
-    var audioSelect = document.querySelector("select#audioSource");
-    var videoSelect = document.querySelector("select#videoSource");
     function getDevices() {
         AgoraRTC.getDevices(function(devices) {
             for (var i = 0; i !== devices.length; ++i) {
@@ -45,6 +40,7 @@ window.addEventListener("load", function() {
 
     getDevices();
 });
+
 function join() {
     // document.getElementById("join").disabled = true;
     // document.getElementById("video").disabled = true;
@@ -65,7 +61,6 @@ function join() {
                         "User " + uid + " join channel successfully"
                     );
 
-                    if (document.getElementById("video").checked) {
                         camera = videoSource.value;
                         microphone = audioSource.value;
                         localStream = AgoraRTC.createStream({
@@ -114,7 +109,6 @@ function join() {
                                 console.log("getUserMedia failed", err);
                             }
                         );
-                    }
                 },
                 function(err) {
                     console.log("Join channel failed", err);

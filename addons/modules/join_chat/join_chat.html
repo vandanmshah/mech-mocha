@@ -41,33 +41,15 @@
 
     <div id="div_join" class="panel panel-default" style="display: none;">
         <div class="panel-body">
-            App ID: <input id="appId" type="text" value="" size="36"></input>
-            Channel: <input id="channel" type="text" value="1000" size="4"></input>
             Host: <input id="video" type="checkbox" checked></input>
-            <button id="join" class="btn btn-primary" onclick="join()">Join</button>
-            <button id="leave" class="btn btn-primary" onclick="leave()">Leave</button>
-            <button id="publish" class="btn btn-primary" onclick="publish()">Publish</button>
-            <button id="unpublish" class="btn btn-primary" onclick="unpublish()">Unpublish</button>
         </div>
     </div>
-
-    <!-- <style>
-    .video__box{width:910px; margin:0 auto; overflow:hidden;}
-    .video__main{ width:810px; height:607px;float:left }
-    .video__list{ width:200px; height:607px; float:left;}
-    .video__item{ width:200px; height:174px; hei background:url(/img/icon_live.png) center center no-repeat; }
-    </style>
-    <div class="video__main">
-    </div>
-    <div class="video__list">
-        <div class="video__item"></div>
-        <div id="video" class="video__item">
+    <div class='video_controls_container'>
+        <div id="video" style="margin:0 auto;">
             <div id="agora_local"></div>
         </div>
-      </div> -->
-
-    <div id="video" style="margin:0 auto;">
-        <div id="agora_local"></div>
+        <button type="button" class="btn btn-success mm_hide_self">Hide Your self</button>
+        <button type="button" class="btn btn-success mm_hide_opponent">Hide Opponent</button>
     </div>
 </body>
 

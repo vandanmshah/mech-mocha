@@ -1,5 +1,26 @@
-#video div {
+.video_controls_container {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 0;
+    width: 100%;
+}
+#video {
+    display: -webkit-box;
+}
+#video > div {
+    float: left;
     margin: 10px;
-    width: 210px !important;
-    height: 147px !important;
+    width: 44% !important;
+    height: 107px !important;
+    display: inline-block;
+}
+.video_controls_container button {
+    display: inline-block;
+    margin: auto;
+    width: auto;
+    margin: 10px;
+    width: 43%;
+}
+.hide {
+    display: none !important;
 }
