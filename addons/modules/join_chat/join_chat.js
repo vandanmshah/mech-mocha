@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
             $('#agora_local').toggleClass('hide');
         }
         if ($ev.target.classList.contains('mm_hide_opponent')) {
-            $('div:not(#agora_local)').toggleClass('hide');
+            $('#video > div:not(#agora_local)').toggleClass('hide');
         }
     });
     AgoraRTC.Logger.error("this is error");
