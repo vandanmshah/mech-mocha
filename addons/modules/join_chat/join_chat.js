@@ -2,6 +2,8 @@ window.addEventListener("load", function() {
     if (!AgoraRTC.checkSystemRequirements()) {
         alert("Your browser does not support WebRTC!");
     }
+    var gameDiv = guessGame('fruits', false, 'banana');
+    document.querySelector('.game').appendChild(gameDiv.content);
     $(".video_controls_container").click(function($ev) {
         var currentStr = $ev.target.textContent.split(" ");
         $ev.target.textContent = $ev.target.textContent.replace(

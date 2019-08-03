@@ -1,7 +1,13 @@
+html, body {
+    height: 100%;
+}
 .video_controls_container {
-    position: absolute;
     margin: 0 auto;
     bottom: 0;
+    width: 100%;
+}
+.game {
+    height: 60%;
     width: 100%;
 }
 #video {
@@ -23,4 +29,8 @@
 }
 .hide {
     display: none !important;
+}
+.game_container img{
+    max-width: -webkit-fill-available;
+    margin: 30px;
 }
