@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
                 localStorage.setItem("channelId", data[0].connectionId);
                 localStorage.setItem("gameType", "fruits");
                 localStorage.setItem("isPlaying", 0);
-                $('.btn_redirect').click();
+                $('.btn_redirect')[0].click();
                 // window.location.href = 'https://vandanmshah.github.io/mech-mocha/addons/modules/join_chat/join_chat.html';
                 // window.location.replace(
                 //     "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
