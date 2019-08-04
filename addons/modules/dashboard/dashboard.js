@@ -9,20 +9,20 @@ window.addEventListener("load", function() {
                 null
             );
             if (data[0].status === "2") {
-                if (
-                    confirm(
-                        "You have invitation to play game. Do you want to play?"
-                    )
-                ) {
+                // if (
+                //     confirm(
+                //         "You have invitation to play game. Do you want to play?"
+                //     )
+                // ) {
                     localStorage.setItem("channelId", data[0].connectionId);
                     localStorage.setItem("gameType", "fruits");
                     localStorage.setItem("isPlaying", 0);
                     window.location.replace(
                         "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
                     );
-                } else {
-                    clearInterval(interval);
-                }
+                // } else {
+                //     clearInterval(interval);
+                // }
             }
         }
     }, 1000);
