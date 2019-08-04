@@ -1,24 +1,29 @@
 window.addEventListener("load", function() {
+    var flag = false;
+
     setInterval(function() {
-        var data = http(
-            "https://serene-wave-90244.herokuapp.com/players?email=" +
-                localStorage.getItem("email"),
-            "GET",
-            null
-        );
-        if (
-            data[0].status === "2" &&
-            confirm("You have invitation to play game. Do you want to play?")
-        ) {
-            localStorage.setItem("channelId", data[0].connectionId);
-            localStorage.setItem("gameType", "fruits");
-            localStorage.setItem("isPlaying", 1);
-            window.location.replace(
-                "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
+        if (!flag) {
+            var data = http(
+                "https://serene-wave-90244.herokuapp.com/players?email=" +
+                    localStorage.getItem("email"),
+                "GET",
+                null
             );
+            if (
+                data[0].status === "2" &&
+                confirm("You have invitation to play game. Do you want to play?")
+            ) {
+                localStorage.setItem("channelId", data[0].connectionId);
+                localStorage.setItem("gameType", "fruits");
+                localStorage.setItem("isPlaying", 0);
+                window.location.replace(
+                    "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
+                );
+            }
         }
     }, 1000);
     $(".play_btn").click(function($ev) {
+        flag = true;
         var data = http(
             "https://serene-wave-90244.herokuapp.com/players?status=1",
             "GET",

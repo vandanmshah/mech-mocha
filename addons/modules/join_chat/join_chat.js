@@ -2,7 +2,7 @@ window.addEventListener("load", function() {
     if (!AgoraRTC.checkSystemRequirements()) {
         alert("Your browser does not support WebRTC!");
     }
-    var gameDiv = guessGame(localStorage.getItem('gameType'), Boolean(localStorage.getItem("isPlaying")), 'banana');
+    var gameDiv = guessGame(localStorage.getItem('gameType'), Number(localStorage.getItem("isPlaying")), 'banana');
     document.querySelector('.game').appendChild(gameDiv.content);
     $(".video_controls_container").click(function($ev) {
         var currentStr = $ev.target.textContent.split(" ");
