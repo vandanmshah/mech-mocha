@@ -14,15 +14,13 @@ window.addEventListener("load", function() {
                 //         "You have invitation to play game. Do you want to play?"
                 //     )
                 // ) {
-                    localStorage.setItem("channelId", data[0].connectionId);
-                    localStorage.setItem("gameType", "fruits");
-                    localStorage.setItem("isPlaying", 0);
-                    window.location.replace(
-                        "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
-                    );
-                // } else {
-                //     clearInterval(interval);
-                // }
+                localStorage.setItem("channelId", data[0].connectionId);
+                localStorage.setItem("gameType", "fruits");
+                localStorage.setItem("isPlaying", 0);
+                window.location.href = 'https://serene-wave-90244.herokuapp.com/mech-mocha/addons/modules/join_chat/join_chat.html';
+                // window.location.replace(
+                //     "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
+                // );
             }
         }
     }, 1000);
