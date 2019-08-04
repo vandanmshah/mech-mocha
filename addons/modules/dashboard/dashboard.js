@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
                 localStorage.setItem("channelId", data[0].connectionId);
                 localStorage.setItem("gameType", "fruits");
                 localStorage.setItem("isPlaying", 0);
-                window.location.href = 'https://serene-wave-90244.herokuapp.com/mech-mocha/addons/modules/join_chat/join_chat.html';
+                window.location.href = 'https://vandanmshah.github.io/mech-mocha/addons/modules/join_chat/join_chat.html';
                 // window.location.replace(
                 //     "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
                 // );
