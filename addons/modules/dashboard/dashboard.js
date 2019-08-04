@@ -1,7 +1,6 @@
 window.addEventListener("load", function() {
     var flag = false;
-
-    setInterval(function() {
+    var interval = setInterval(function() {
         if (!flag) {
             var data = http(
                 "https://serene-wave-90244.herokuapp.com/players?email=" +
@@ -9,16 +8,21 @@ window.addEventListener("load", function() {
                 "GET",
                 null
             );
-            if (
-                data[0].status === "2" &&
-                confirm("You have invitation to play game. Do you want to play?")
-            ) {
-                localStorage.setItem("channelId", data[0].connectionId);
-                localStorage.setItem("gameType", "fruits");
-                localStorage.setItem("isPlaying", 0);
-                window.location.replace(
-                    "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
-                );
+            if (data[0].status === "2") {
+                if (
+                    confirm(
+                        "You have invitation to play game. Do you want to play?"
+                    )
+                ) {
+                    localStorage.setItem("channelId", data[0].connectionId);
+                    localStorage.setItem("gameType", "fruits");
+                    localStorage.setItem("isPlaying", 0);
+                    window.location.replace(
+                        "file:///home/axisrooms/Documents/HT/mech-mocha/addons/modules/join_chat/join_chat.html"
+                    );
+                } else {
+                    clearInterval(interval);
+                }
             }
         }
     }, 1000);
@@ -41,7 +45,7 @@ window.addEventListener("load", function() {
             "connectionId=" + myData["_id"] + "-" + opponent["_id"]
         );
         localStorage.setItem("channelId", myData["_id"] + opponent["_id"]);
-        localStorage.setItem("isPlaying", 0);
+        localStorage.setItem("isPlaying", 1);
         localStorage.setItem("gameType", $ev.target.dataset.id);
     });
 });
