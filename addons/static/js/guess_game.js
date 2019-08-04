@@ -20,10 +20,23 @@
         render: function() {
             var gameDiv = document.createElement("div");
             gameDiv.classList.add("game_container");
+            var data = httpGet('https://serene-wave-90244.herokuapp.com/data?type=' + this.gameType);
+            var self = this;
             if (this.isPlaying) {
+                var select = document.createElement("select");
+                data.forEach(function (element) {
+                    var option = document.createElement("option");
+                    option.textContent = element.name;
+                    option.value = element.name;
+                    select.appendChild(option);
+                });
+                gameDiv.appendChild(select);
+                var btnSend = document.createElement("button");
+                btnSend.textContent = 'Send';
+                gameDiv.appendChild(select);
+                gameDiv.appendChild(btnSend);
             } else {
-                var data = httpGet('https://serene-wave-90244.herokuapp.com/data?type=fruits');
-                var self = this;
+                // var data = httpGet('https://serene-wave-90244.herokuapp.com/data?type=' + this.gameType);
                 var filteredData = data.filter(function (obj) {
                     return obj.name === self.name;
                 });
